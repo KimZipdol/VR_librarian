@@ -1,0 +1,40 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+//책장의 한 줄이 갖는 책들에 대한 정보.
+public class BookShelfLine : MonoBehaviour
+{
+    
+    public float totalBooks = 20;
+    public List<Book> books = new List<Book>();
+    
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void SetBooksColor(Color color)
+    {
+        foreach (var item in books)
+        {
+            item.SetColor(color);
+        }
+    }
+
+    public void SetBooksName(string lang)
+    {
+        foreach (var item in books)
+        {
+            item.SetText((BookManager.Instance.booksName[Random.Range(0, BookManager.Instance.titleVariety)][lang]).ToString());
+        }
+    }
+}
