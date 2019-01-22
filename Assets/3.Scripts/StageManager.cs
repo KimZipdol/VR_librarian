@@ -29,7 +29,7 @@ public class StageManager : MonoBehaviour
     public int stage = 1;
     public StageState stageState = StageState.PRESTAGE;
 
-    List<Dictionary<string, object>> stageData = null;
+    public List<Dictionary<string, object>> stageData = null;
 
     private void Awake()
     {

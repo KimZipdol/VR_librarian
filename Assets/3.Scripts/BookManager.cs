@@ -59,6 +59,7 @@ public class BookManager : MonoBehaviour
     {
         foreach (var item in bookShelfLines)
         {
+            Debug.Log(StageManager.Instance.stageData[1]["Language"].ToString() + ", 현재: " + Language[Random.Range(0, 2)]);
             item.SetBooksColor(colors[Random.Range(0, 4)]);
             item.SetBooksName(Language[Random.Range(0, 2)]);
         }
