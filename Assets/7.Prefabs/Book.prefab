@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3699205496238737916}
   - component: {fileID: 731114327680730339}
   - component: {fileID: 9075162866955007648}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TitleCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 7283763559094355049}
   - component: {fileID: 4930958265965416896}
   - component: {fileID: 3026087934563154411}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,6 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 3026087934563154411}
   _mesh: {fileID: 1815292669238489014}
+  isQuestion: 0
 --- !u!1 &8771389027108544835
 GameObject:
   m_ObjectHideFlags: 0

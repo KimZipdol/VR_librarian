@@ -11,23 +11,25 @@ public class Book : MonoBehaviour
 {
     //기존의 위치와 회전값를 가짐.
     Vector3 initPos = Vector3.zero;
-    Vector3 initEulerRot = Quaternion.identity.eulerAngles;
+    //Vector3 initEulerRot = Quaternion.identity.eulerAngles;
     public Text title = null;
     public MeshRenderer _mesh;
     
     //이 책이 떨어져서 제자리를 찾아야 되는 책인지?
-    bool isQuestion = false;
+    public bool isQuestion = false;
 
     private void Awake()
     {
-        initPos = transform.position;
+        
     }
 
     private void Update()
     {
-        if(isQuestion)
+        if(isQuestion)  //판정 조건을 컨트롤러에서 들어다 놓았을 때로 변경.
         {
-            if ((transform.position - initPos).magnitude <= BookManager.Instance.correctDist && (transform.rotation.eulerAngles - initEulerRot).magnitude <= BookManager.Instance.correctRot)
+            var posDif = (transform.position - initPos).magnitude;
+            //var rotDif = Quaternion.sl
+            if ( posDif <= BookManager.Instance.correctDist)
             {
                 RightAnswer();
             }
@@ -49,17 +51,32 @@ public class Book : MonoBehaviour
     /// </summary>
     void RightAnswer()
     {
-        isQuestion = false;
-        transform.position = initPos;
-        transform.rotation = Quaternion.Euler(initEulerRot);
-
-        //TODO: 상호작용 불가능하도록 하는 작업. 레이어.
-        gameObject.layer = 0;
-        CorrectEffect();
+        if(isQuestion)
+        {
+            isQuestion = false;
+            transform.position = initPos;
+            
+            //TODO: 상호작용 불가능하도록 하는 작업. 레이어.
+            gameObject.layer = 0;
+            StageManager.Instance.ClearBook();
+            CorrectEffect();
+        }
     }
 
     void CorrectEffect()
     {
+        
+    }
 
+    public void MemorizePos()
+    {
+        initPos = transform.position;
+    }
+
+    public void MakeQuestion()
+    {
+        gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * -100f);
+        isQuestion = true;
+        gameObject.layer = 9;
     }
 }

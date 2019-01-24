@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3d4cc1df7aad84ba1477228bcf4603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBooks: 0
+  totalBooks: 14
   books:
   - {fileID: 6499884026451554444}
   - {fileID: 7644334299280716985}

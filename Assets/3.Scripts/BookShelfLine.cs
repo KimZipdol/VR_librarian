@@ -34,7 +34,17 @@ public class BookShelfLine : MonoBehaviour
     {
         foreach (var item in books)
         {
-            item.SetText((BookManager.Instance.booksName[Random.Range(0, BookManager.Instance.titleVariety)][lang]).ToString());
+            var index = Random.Range(0, BookManager.Instance.titleVariety);
+            var list = BookManager.Instance.booksName[index];
+            item.SetText((list[lang]).ToString());
+        }
+    }
+
+    public void MemoPos()
+    {
+        foreach (var item in books)
+        {
+            item.MemorizePos();
         }
     }
 }
